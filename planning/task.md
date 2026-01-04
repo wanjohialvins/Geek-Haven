@@ -8,7 +8,7 @@
 
 - [ ] **Core Architecture & Design System** <!-- id: 5 -->
     - [x] Implement "Nature x Technology" Theme (Colors, Typography, Shapes) <!-- id: 6 -->
-    - [ ] Setup Navigation Component (Compose Navigation) <!-- id: 7 -->
+    - [x] Setup Navigation Component (Compose Navigation) <!-- id: 7 -->
     - [ ] Create Base MVVM Architecture Components <!-- id: 8 -->
 
 - [ ] **Data Layer Implementation** <!-- id: 9 -->
