@@ -24,10 +24,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TextButton
 import androidx.compose.material.icons.filled.Headphones
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Pause
+import androidx.compose.material.icons.filled.Replay10
+import androidx.compose.material.icons.filled.Forward30
 
 
 @Composable
@@ -146,7 +155,10 @@ fun AudioPlayer(
             is AudioPlayerState.Loading -> CircularProgressIndicator()
             is AudioPlayerState.Error -> Text("Error: ${s.message}")
             is AudioPlayerState.Playing -> {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(32.dp)
+                ) {
                     Text(text = "Now Playing", style = MaterialTheme.typography.titleLarge)
                     Spacer(modifier = Modifier.height(32.dp))
                     
@@ -160,15 +172,67 @@ fun AudioPlayer(
                     
                     Spacer(modifier = Modifier.height(32.dp))
                     
-                    Text(text = "${formatTime(s.position)} / ${formatTime(s.duration)}")
+                    // Progress Slider
+                    androidx.compose.material3.Slider(
+                        value = s.position.toFloat(),
+                        onValueChange = { viewModel.seekTo(it.toLong()) },
+                        valueRange = 0f..s.duration.toFloat().coerceAtLeast(1f)
+                    )
                     
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween
+                    ) {
+                        Text(text = formatTime(s.position), style = MaterialTheme.typography.bodySmall)
+                        Text(text = formatTime(s.duration), style = MaterialTheme.typography.bodySmall)
+                    }
                     
-                    Button(onClick = { viewModel.togglePlayPause() }) {
-                        Text(text = "Play / Pause")
+                    Spacer(modifier = Modifier.height(24.dp))
+                    
+                    // Controls
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                         // replay 10s
+                         androidx.compose.material3.IconButton(onClick = { viewModel.seekTo((s.position - 10000).coerceAtLeast(0)) }) {
+                            Icon(androidx.compose.material.icons.Icons.Default.Replay10, "Rewind 10s")
+                         }
+                         
+                         Spacer(modifier = Modifier.width(16.dp))
+                    
+                        Button(
+                            onClick = { viewModel.togglePlayPause() },
+                            modifier = Modifier.size(64.dp),
+                            shape = androidx.compose.foundation.shape.CircleShape,
+                            contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)
+                        ) {
+                            Icon(
+                                imageVector = if (viewModel.player?.isPlaying == true) androidx.compose.material.icons.Icons.Default.Pause else androidx.compose.material.icons.Icons.Default.PlayArrow,
+                                contentDescription = "Play/Pause"
+                            )
+                        }
+                        
+                         Spacer(modifier = Modifier.width(16.dp))
+                         
+                         // forward 30s
+                         androidx.compose.material3.IconButton(onClick = { viewModel.seekTo((s.position + 30000).coerceAtMost(s.duration)) }) {
+                            Icon(androidx.compose.material.icons.Icons.Default.Forward30, "Forward 30s")
+                         }
+                    }
+                    
+                    Spacer(modifier = Modifier.height(24.dp))
+                    
+                    // Speed Toggle
+                    var speed by remember { mutableStateOf(1.0f) }
+                    TextButton(onClick = {
+                        speed = if (speed >= 2.0f) 0.75f else speed + 0.25f
+                        viewModel.setPlaybackSpeed(speed)
+                    }) {
+                        Text("Speed: ${speed}x")
                     }
                 }
             }
+        }
+    }
+}
         }
     }
 }

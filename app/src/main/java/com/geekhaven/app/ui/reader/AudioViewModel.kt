@@ -104,11 +104,15 @@ class AudioViewModel @Inject constructor(
         }
     }
 
-    fun saveMemoryAnchor(anchor: String) {
-        val bookId = currentBookId ?: return
-        viewModelScope.launch {
-            bookRepository.updateMemoryAnchor(bookId, anchor)
-        }
+    fun seekTo(position: Long) {
+        _player?.seekTo(position)
+        // Update state immediately for responsiveness
+        val currentDuration = (_state.value as? AudioPlayerState.Playing)?.duration ?: 0L
+        _state.value = AudioPlayerState.Playing(position, currentDuration)
+    }
+
+    fun setPlaybackSpeed(speed: Float) {
+        _player?.setPlaybackSpeed(speed)
     }
 
     override fun onCleared() {

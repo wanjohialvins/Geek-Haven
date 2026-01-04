@@ -29,12 +29,15 @@ fun PdfPage(
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         bitmap?.let { btm ->
-            Image(
-                bitmap = btm.asImageBitmap(),
-                contentDescription = "Page ${index + 1}",
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Fit // Fit page within screen
-            )
+            // Use fully qualified if not imported, or import it.
+            com.geekhaven.app.ui.components.ZoomableBox {
+                 Image(
+                    bitmap = btm.asImageBitmap(),
+                    contentDescription = "Page ${index + 1}",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit // Fit page within screen
+                )
+            }
         } ?: run {
             CircularProgressIndicator()
         }

@@ -38,6 +38,10 @@
     - [x] Implement Reading Mode Awareness (Night/Day detection) <!-- id: 29 -->
     - [x] Implement Recommendations Engine <!-- id: 30 -->
 
-- [ ] **Documentation & Polish** <!-- id: 31 -->
-    - [ ] Generate Project Documentation (Setup, Architecture) <!-- id: 32 -->
-    - [ ] Final UI Polish (Animations, Transitions) <!-- id: 33 -->
+- [x] **Feature Implementation: Search & Discover** <!-- id: 34 -->
+    - [x] Implement Search UI (Local + Remote) <!-- id: 35 -->
+
+- [x] **Documentation & Polish** <!-- id: 31 -->
+    - [x] Generate Project Documentation (Setup, Architecture) <!-- id: 32 -->
+    - [x] Final UI Polish (Animations, Transitions) <!-- id: 33 -->
+    - [x] Create User Manual <!-- id: 36 -->
