@@ -7,7 +7,7 @@
     - [x] Configure Build Dependencies (Compose, Room, Retrofit, Coil) <!-- id: 4 -->
 
 - [ ] **Core Architecture & Design System** <!-- id: 5 -->
-    - [ ] Implement "Nature x Technology" Theme (Colors, Typography, Shapes) <!-- id: 6 -->
+    - [x] Implement "Nature x Technology" Theme (Colors, Typography, Shapes) <!-- id: 6 -->
     - [ ] Setup Navigation Component (Compose Navigation) <!-- id: 7 -->
     - [ ] Create Base MVVM Architecture Components <!-- id: 8 -->
 

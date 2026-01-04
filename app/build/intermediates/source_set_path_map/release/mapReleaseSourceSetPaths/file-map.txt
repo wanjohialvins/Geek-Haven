@@ -1,0 +1,59 @@
+com.geekhaven.app-customview-poolingcontainer-1.0.0-0 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\05fb914747269a74c141a6ef874ce4c7\transformed\customview-poolingcontainer-1.0.0\res
+com.geekhaven.app-navigation-common-2.7.7-1 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\063361ffd74ed4d132643f8e1cae86aa\transformed\navigation-common-2.7.7\res
+com.geekhaven.app-hilt-navigation-1.2.0-2 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\169baa317edabdf5b6df90feeb17442e\transformed\hilt-navigation-1.2.0\res
+com.geekhaven.app-ui-graphics-release-3 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\23f93177a4d85aa87a3f3fd00915569c\transformed\ui-graphics-release\res
+com.geekhaven.app-ui-release-4 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\24a6dc3ce0f2a1ae63fcac9f3d471360\transformed\ui-release\res
+com.geekhaven.app-sqlite-2.4.0-5 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\256d15761c6732b42392a21406466f6b\transformed\sqlite-2.4.0\res
+com.geekhaven.app-core-ktx-1.12.0-6 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\27e0b20a34d7cbd88a935e1ece8cf668\transformed\core-ktx-1.12.0\res
+com.geekhaven.app-lifecycle-process-2.7.0-7 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\32a940fb6dd1c940d001f76300e15590\transformed\lifecycle-process-2.7.0\res
+com.geekhaven.app-activity-1.8.2-8 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\345eac712064608256747aa0769b7cca\transformed\activity-1.8.2\res
+com.geekhaven.app-ui-unit-release-9 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\406e2ed8414cc942ae34ff2134120947\transformed\ui-unit-release\res
+com.geekhaven.app-material-ripple-release-10 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\40c23fc2df749f2111ef9c8d62f99ba1\transformed\material-ripple-release\res
+com.geekhaven.app-navigation-runtime-ktx-2.7.7-11 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\42ee3fd05210d29fc1d2442ed9ec0b4b\transformed\navigation-runtime-ktx-2.7.7\res
+com.geekhaven.app-startup-runtime-1.1.1-12 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\445e1b144b94f32982272916085d9f4b\transformed\startup-runtime-1.1.1\res
+com.geekhaven.app-sqlite-framework-2.4.0-13 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\448a709c99cf375ba6f390b9660ce242\transformed\sqlite-framework-2.4.0\res
+com.geekhaven.app-profileinstaller-1.3.1-14 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\4a9d8f458c2cf76dc162f02d9cae467b\transformed\profileinstaller-1.3.1\res
+com.geekhaven.app-savedstate-ktx-1.2.1-15 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\4d88214e094a3c28ee7fec3a6a30ec4c\transformed\savedstate-ktx-1.2.1\res
+com.geekhaven.app-ui-util-release-16 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\4dffaf0bc993bd26fbed023831775917\transformed\ui-util-release\res
+com.geekhaven.app-animation-release-17 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\4e62bd8abfb0925c33fe1ca73cf7dc74\transformed\animation-release\res
+com.geekhaven.app-material-icons-core-release-18 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\5b4a33ffea6959df4d48cf203ae7ed20\transformed\material-icons-core-release\res
+com.geekhaven.app-activity-ktx-1.8.2-19 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\5b86630f5649e3f47012e724676b8d95\transformed\activity-ktx-1.8.2\res
+com.geekhaven.app-appcompat-resources-1.6.1-20 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\5bbd62602fca13eb782b4ae2d7809f2e\transformed\appcompat-resources-1.6.1\res
+com.geekhaven.app-navigation-compose-2.7.7-21 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\70c7a6b8e5cd9b20ded35097c166781e\transformed\navigation-compose-2.7.7\res
+com.geekhaven.app-lifecycle-livedata-core-2.7.0-22 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\72eb3bc580bf3cc4bd774e255fc6e896\transformed\lifecycle-livedata-core-2.7.0\res
+com.geekhaven.app-lifecycle-livedata-core-ktx-2.7.0-23 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\7ce7d427b216e37a9e127234a091c9c5\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.geekhaven.app-coil-base-2.6.0-24 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\84db62972c3ec58bc917954a78f72c51\transformed\coil-base-2.6.0\res
+com.geekhaven.app-ui-geometry-release-25 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\877356e1f8412b61cac1093374949bb3\transformed\ui-geometry-release\res
+com.geekhaven.app-foundation-layout-release-26 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\9318a25bad27c4ac4fcb1d62fd89ddd0\transformed\foundation-layout-release\res
+com.geekhaven.app-lifecycle-viewmodel-compose-2.7.0-27 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\94af4fda1c0f55fb58cfec1364e6c92f\transformed\lifecycle-viewmodel-compose-2.7.0\res
+com.geekhaven.app-core-1.12.0-28 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\9f3bc51cfe55ab71a0160be15fcc7e3e\transformed\core-1.12.0\res
+com.geekhaven.app-animation-core-release-29 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\a10f61c1a78a09d4cbd2c4b8289ff6c7\transformed\animation-core-release\res
+com.geekhaven.app-lifecycle-runtime-2.7.0-30 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\a3aea729c6988ccfb5aa0f6acbe0dccb\transformed\lifecycle-runtime-2.7.0\res
+com.geekhaven.app-room-ktx-2.6.1-31 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\a5d333a0f6417d2b59db00171c5e1410\transformed\room-ktx-2.6.1\res
+com.geekhaven.app-lifecycle-runtime-ktx-2.7.0-32 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\a745aa90bbf7609c828aae9a9d5e8170\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.geekhaven.app-lifecycle-viewmodel-savedstate-2.7.0-33 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\a793ac2e76ce33759fc62b598f6c32e7\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.geekhaven.app-runtime-saveable-release-34 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\ad5f4ae59371606238b57d9745488132\transformed\runtime-saveable-release\res
+com.geekhaven.app-navigation-runtime-2.7.7-35 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\adfc20b83838305a1d60bc86036b9d73\transformed\navigation-runtime-2.7.7\res
+com.geekhaven.app-runtime-release-36 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\b093b827bce7620ff167ad42eeddc413\transformed\runtime-release\res
+com.geekhaven.app-activity-compose-1.8.2-37 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\c1e61f1e23065042d705d6800868f68b\transformed\activity-compose-1.8.2\res
+com.geekhaven.app-annotation-experimental-1.4.0-38 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\c2631cb435b4f975ba2420b8ff50e3c5\transformed\annotation-experimental-1.4.0\res
+com.geekhaven.app-core-runtime-2.2.0-39 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\c5aecc91b4b2b69111b2575ade333d9b\transformed\core-runtime-2.2.0\res
+com.geekhaven.app-fragment-1.5.1-40 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\c5f92ac3614f071a09519fdd8f81a391\transformed\fragment-1.5.1\res
+com.geekhaven.app-emoji2-1.3.0-41 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\ca0c6208f43f5bfaf4cb835ff24cd01a\transformed\emoji2-1.3.0\res
+com.geekhaven.app-navigation-common-ktx-2.7.7-42 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\cbc58b7a2d89e0b977a62ab5091c49e2\transformed\navigation-common-ktx-2.7.7\res
+com.geekhaven.app-material3-release-43 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\d061dd37bffe36da3cc5f397a914d003\transformed\material3-release\res
+com.geekhaven.app-room-runtime-2.6.1-44 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\d23716c52a269c930d3a01bdf5f2fbe9\transformed\room-runtime-2.6.1\res
+com.geekhaven.app-ui-tooling-preview-release-45 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\e504c69cf4c78f7bdd712a15782e440e\transformed\ui-tooling-preview-release\res
+com.geekhaven.app-ui-text-release-46 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\e652e35b6f317d74f16f4eb32670b134\transformed\ui-text-release\res
+com.geekhaven.app-hilt-navigation-compose-1.2.0-47 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\e6b660d6b73fb634aa07a08ab64b665e\transformed\hilt-navigation-compose-1.2.0\res
+com.geekhaven.app-savedstate-1.2.1-48 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\e754c3ada52d3f623323b80aa6b7274e\transformed\savedstate-1.2.1\res
+com.geekhaven.app-foundation-release-49 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\e89cef5355d54cf470cf9b43d966c399\transformed\foundation-release\res
+com.geekhaven.app-lifecycle-viewmodel-2.7.0-50 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\eef0337bf09a2b911da257ad3b506f78\transformed\lifecycle-viewmodel-2.7.0\res
+com.geekhaven.app-lifecycle-viewmodel-ktx-2.7.0-51 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\fbd9d760cdf6f32d4815147cc3031456\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.geekhaven.app-lifecycle-livedata-2.7.0-52 C:\Users\alvod\.gradle\caches\9.0-milestone-1\transforms\fc45a88ddc3981c64d86c0cf8d23b8bd\transformed\lifecycle-livedata-2.7.0\res
+com.geekhaven.app-resValues-53 D:\Personal Projects\Geek Haven\app\build\generated\res\resValues\release
+com.geekhaven.app-packageReleaseResources-54 D:\Personal Projects\Geek Haven\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.geekhaven.app-packageReleaseResources-55 D:\Personal Projects\Geek Haven\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.geekhaven.app-release-56 D:\Personal Projects\Geek Haven\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.geekhaven.app-main-57 D:\Personal Projects\Geek Haven\app\src\main\res
+com.geekhaven.app-release-58 D:\Personal Projects\Geek Haven\app\src\release\res
