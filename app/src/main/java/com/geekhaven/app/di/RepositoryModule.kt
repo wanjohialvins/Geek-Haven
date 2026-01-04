@@ -17,4 +17,16 @@ abstract class RepositoryModule {
     abstract fun bindBookRepository(
         bookRepositoryImpl: BookRepositoryImpl
     ): BookRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSearchRepository(
+        impl: com.geekhaven.app.data.repository.SearchRepositoryImpl
+    ): com.geekhaven.app.domain.repository.SearchRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindIntelligenceRepository(
+        impl: com.geekhaven.app.data.repository.IntelligenceRepositoryImpl
+    ): com.geekhaven.app.domain.repository.IntelligenceRepository
 }

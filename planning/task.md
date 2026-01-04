@@ -19,9 +19,9 @@
     - [x] Create Repositories (BookRepository, SearchRepository) <!-- id: 14 -->
 
 - [ ] **Local File Management (The "Book Hub")** <!-- id: 15 -->
-    - [/] Implement Storage Access Framework (SAF) integration <!-- id: 16 -->
-    - [/] Build Local File Scanner (PDF, EPUB, Audio) <!-- id: 17 -->
-    - [ ] Implement Book Matching Logic (Format Grouping) <!-- id: 18 -->
+    - [x] Implement Storage Access Framework (SAF) integration <!-- id: 16 -->
+    - [x] Build Local File Scanner (PDF, EPUB, Audio) <!-- id: 17 -->
+    - [x] Implement Book Matching Logic (Format Grouping) <!-- id: 18 -->
 
 - [ ] **Feature Implementation: Core UX** <!-- id: 19 -->
     - [ ] **Home Screen**: Currently Reading, Recommendations <!-- id: 20 -->

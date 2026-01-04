@@ -27,4 +27,19 @@ object NetworkModule {
     fun provideGoogleBooksApi(retrofit: Retrofit): GoogleBooksApi {
         return retrofit.create(GoogleBooksApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideWebSearchApi(retrofit: Retrofit): WebSearchApi {
+        return retrofit.create(WebSearchApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGeminiApi(retrofit: Retrofit): GeminiApi {
+        // Note: Real Gemini API URL might differ (generativelanguage.googleapis.com), 
+        // requiring a separate Retrofit instance or @Url. 
+        // For now, using the same base or assuming generic handling.
+        return retrofit.create(GeminiApi::class.java)
+    }
 }
