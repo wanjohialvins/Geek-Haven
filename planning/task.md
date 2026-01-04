@@ -2,9 +2,9 @@
 
 - [ ] **Project Initialization** <!-- id: 0 -->
     - [x] Create planning artifacts (`task.md`, `implementation_plan.md`) <!-- id: 1 -->
-    - [ ] Initialize Git repository and configure `.gitignore` <!-- id: 2 -->
-    - [ ] Scaffold Android Project Structure (Gradle, Manifest, Source sets) <!-- id: 3 -->
-    - [ ] Configure Build Dependencies (Compose, Room, Retrofit, Coil) <!-- id: 4 -->
+    - [x] Initialize Git repository and configure `.gitignore` <!-- id: 2 -->
+    - [x] Scaffold Android Project Structure (Gradle, Manifest, Source sets) <!-- id: 3 -->
+    - [x] Configure Build Dependencies (Compose, Room, Retrofit, Coil) <!-- id: 4 -->
 
 - [ ] **Core Architecture & Design System** <!-- id: 5 -->
     - [ ] Implement "Nature x Technology" Theme (Colors, Typography, Shapes) <!-- id: 6 -->
