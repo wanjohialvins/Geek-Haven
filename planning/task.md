@@ -31,12 +31,12 @@
 - [ ] **Feature Implementation: Readers & Players** <!-- id: 23 -->
     - [x] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->
     - [x] **Audio Player**: Basic playback, progress tracking <!-- id: 25 -->
-    - [ ] Implement "If You Stop Now..." Memory Feature <!-- id: 26 -->
+    - [x] Implement "If You Stop Now..." Memory Feature <!-- id: 26 -->
 
 - [ ] **Intelligence & Personalization** <!-- id: 27 -->
-    - [ ] Implement "Reading DNA" Profiling <!-- id: 28 -->
-    - [ ] Implement Reading Mode Awareness (Night/Day detection) <!-- id: 29 -->
-    - [ ] Implement Recommendations Engine <!-- id: 30 -->
+    - [x] Implement "Reading DNA" Profiling <!-- id: 28 -->
+    - [x] Implement Reading Mode Awareness (Night/Day detection) <!-- id: 29 -->
+    - [x] Implement Recommendations Engine <!-- id: 30 -->
 
 - [ ] **Documentation & Polish** <!-- id: 31 -->
     - [ ] Generate Project Documentation (Setup, Architecture) <!-- id: 32 -->

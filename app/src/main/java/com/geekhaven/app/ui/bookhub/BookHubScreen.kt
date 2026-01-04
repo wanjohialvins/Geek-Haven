@@ -109,7 +109,6 @@ fun BookDetailContent(book: BookEntity) {
 
         Spacer(modifier = Modifier.height(24.dp))
         
-        // Memory Anchor (If You Stop Now...)
         if (!book.memoryAnchor.isNullOrBlank()) {
             Box(
                 modifier = Modifier
@@ -119,7 +118,7 @@ fun BookDetailContent(book: BookEntity) {
             ) {
                 Column {
                     Text(
-                        text = "Previously on...",
+                        text = "Last Memory Anchor",
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onTertiaryContainer
                     )
@@ -127,11 +126,21 @@ fun BookDetailContent(book: BookEntity) {
                     Text(
                         text = book.memoryAnchor,
                         style = MaterialTheme.typography.bodyMedium,
+                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
                         color = MaterialTheme.colorScheme.onTertiaryContainer
                     )
                 }
             }
             Spacer(modifier = Modifier.height(24.dp))
+        } else {
+             // Maybe show a button to add a note?
+             // For now, keeping it clean as per "Nature" theme.
+        }
+
+        // Series Info
+        if (!book.series.isNullOrBlank()) {
+             Text(text = "Series: ${book.series}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.primary)
+             Spacer(modifier = Modifier.height(8.dp))
         }
 
         Spacer(modifier = Modifier.height(8.dp))

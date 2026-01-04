@@ -28,7 +28,8 @@ fun GeekHavenNavGraph(
                 onNavigateToLibrary = { navController.navigate(Screen.Library.route) },
                 onNavigateToBook = { bookId ->
                     navController.navigate(Screen.BookHub.createRoute(bookId))
-                }
+                },
+                onNavigateToSearch = { navController.navigate(Screen.Search.route) }
             )
         }
 
@@ -70,6 +71,17 @@ fun GeekHavenNavGraph(
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() }
             )
+        }
+        
+        composable(Screen.Search.route) {
+             com.geekhaven.app.ui.search.SearchScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToBook = { bookId -> 
+                    // If book is saved, go to Hub. If remote, maybe show different view?
+                    // For now, assume we implement "Add" logic later or just view Hub if ID exists.
+                    if (bookId > 0) navController.navigate(Screen.BookHub.createRoute(bookId))
+                }
+             )
         }
     }
 }
