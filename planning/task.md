@@ -9,7 +9,7 @@
 - [ ] **Core Architecture & Design System** <!-- id: 5 -->
     - [x] Implement "Nature x Technology" Theme (Colors, Typography, Shapes) <!-- id: 6 -->
     - [x] Setup Navigation Component (Compose Navigation) <!-- id: 7 -->
-    - [ ] Create Base MVVM Architecture Components <!-- id: 8 -->
+    - [x] Create Base MVVM Architecture Components (ViewModels, UseCases, Repositories) <!-- id: 8 -->
 
 - [ ] **Data Layer Implementation** <!-- id: 9 -->
     - [x] Setup Room Database (Entities: Book, ReadingSession, etc.) <!-- id: 10 -->
@@ -38,7 +38,12 @@
 - [ ] **Intelligence & Personalization** <!-- id: 27 -->
     - [x] Implement "Reading DNA" Profiling <!-- id: 28 -->
     - [x] Implement Reading Mode Awareness (Night/Day detection) <!-- id: 29 -->
+    - [x] Implement "Reading DNA" Profiling <!-- id: 28 -->
+    - [x] Implement Reading Mode Awareness (Night/Day detection) <!-- id: 29 -->
     - [x] Implement Recommendations Engine <!-- id: 30 -->
+    - [x] **Mood Matcher**: "Tired", "Curious" filters <!-- id: 40 -->
+    - [x] **Unfinished Rescue**: Nudge abondoned books <!-- id: 41 -->
+    - [x] **Explain This Book**: AI Pitch/Summary <!-- id: 42 -->
 
 - [x] **Feature Implementation: Search & Discover** <!-- id: 34 -->
     - [x] Implement Search UI (Local + Remote) <!-- id: 35 -->

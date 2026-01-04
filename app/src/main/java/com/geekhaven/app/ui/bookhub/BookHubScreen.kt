@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -143,8 +144,37 @@ fun BookDetailContent(book: BookEntity) {
              Spacer(modifier = Modifier.height(8.dp))
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
+        // AI Feature: Explain This Book
+        var showExplanation by remember { mutableStateOf(false) }
+        androidx.compose.material3.OutlinedButton(
+            onClick = { showExplanation = !showExplanation },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Icon(androidx.compose.material.icons.Icons.Default.AutoAwesome, contentDescription = null)
+            Spacer(modifier = Modifier.width(8.dp))
+            Text("Explain This Book (AI)")
+        }
+        
+        if (showExplanation) {
+            Spacer(modifier = Modifier.height(8.dp))
+            androidx.compose.material3.Card(
+                colors = androidx.compose.material3.CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text("Gemini Insight", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "This book explores the intersection of nature and technology. It's a perfect match for your 'Focused' mood. Readers who liked 'The Martian' often enjoy this.", // Mock response
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+        
         // Format Actions
         Text(text = "Available Formats", style = MaterialTheme.typography.labelLarge)
         Spacer(modifier = Modifier.height(8.dp))

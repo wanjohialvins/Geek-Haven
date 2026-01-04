@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -27,6 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.geekhaven.app.data.local.entity.BookEntity
 import com.geekhaven.app.ui.library.BookItem
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     onNavigateToLibrary: () -> Unit,
@@ -89,8 +91,52 @@ fun HomeScreen(
                 }
 
                 items(recentBooks) { book ->
-                    // Reusing BookItem for now, though usually Home cards are different
                      BookItem(book = book, onClick = { onNavigateToBook(book.id) })
+                }
+                
+                // Mood Matcher UI
+                item {
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Text("How are you feeling?", style = MaterialTheme.typography.headlineSmall)
+                    Spacer(modifier = Modifier.height(16.dp))
+                    
+                    val currentMood by viewModel.moodFilter.collectAsState()
+                    androidx.compose.foundation.lazy.LazyRow(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp)) {
+                        items(listOf("Tired", "Focused", "Curious")) { mood ->
+                            androidx.compose.material3.FilterChip(
+                                selected = currentMood == mood,
+                                onClick = { viewModel.setMood(if (currentMood == mood) null else mood) },
+                                label = { Text(mood) }
+                            )
+                        }
+                    }
+                }
+                
+                // Mood Results (if active)
+                val moodResults by viewModel.moodBooks.collectAsState()
+                if (moodResults.isNotEmpty()) {
+                    items(moodResults) { book ->
+                        BookItem(book = book, onClick = { onNavigateToBook(book.id) })
+                    }
+                }
+
+                // Unfinished Rescue UI
+                val rescueBooks by viewModel.rescueBooks.collectAsState()
+                if (rescueBooks.isNotEmpty()) {
+                    item {
+                        Spacer(modifier = Modifier.height(24.dp))
+                        androidx.compose.material3.Card(
+                            colors = androidx.compose.material3.CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)
+                        ) {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text("Don't give up!", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onErrorContainer)
+                                Text("These books are waiting for you.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onErrorContainer)
+                            }
+                        }
+                    }
+                     items(rescueBooks) { book ->
+                        BookItem(book = book, onClick = { onNavigateToBook(book.id) })
+                    }
                 }
                 
                 item {

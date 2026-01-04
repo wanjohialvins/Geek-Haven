@@ -17,6 +17,7 @@ data class BookEntity(
     val title: String,
     val authors: List<String> = emptyList(), // JSON Converted
     val description: String? = null,
+    val pageCount: Int = 0, // Metadata page count (distinct from progress)
     val isbn: String? = null,
     val coverUrl: String? = null,
     val publisher: String? = null,
