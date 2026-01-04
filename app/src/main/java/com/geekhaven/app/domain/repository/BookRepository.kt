@@ -14,4 +14,7 @@ interface BookRepository {
     
     // Progress
     suspend fun updateProgress(bookId: Long, page: Int, audioPos: Long, percentage: Int, status: com.geekhaven.app.data.local.entity.ReadingStatus)
+    
+    // Intelligence
+    suspend fun updateMemoryAnchor(bookId: Long, anchor: String?)
 }

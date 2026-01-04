@@ -60,6 +60,24 @@ fun HomeScreen(
                     // Reusing BookItem for now, though usually Home cards are different
                      BookItem(book = book, onClick = { onNavigateToBook(book.id) })
                 }
+                
+                item {
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Text(
+                        text = "Recommended for You",
+                        style = MaterialTheme.typography.headlineSmall,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                }
+                
+                val recommendedBooks by viewModel.recommendedBooks.collectAsState()
+                if (recommendedBooks.isEmpty()) {
+                     item { Text("Add more books to get recommendations!", style = MaterialTheme.typography.bodyMedium) }
+                } else {
+                    items(recommendedBooks) { book ->
+                        BookItem(book = book, onClick = { onNavigateToBook(book.id) })
+                    }
+                }
             }
         }
     }

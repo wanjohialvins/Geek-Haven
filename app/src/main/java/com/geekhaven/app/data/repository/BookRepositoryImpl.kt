@@ -57,4 +57,10 @@ class BookRepositoryImpl @Inject constructor(
         )
         bookDao.insertBook(updatedBook)
     }
+
+    override suspend fun updateMemoryAnchor(bookId: Long, anchor: String?) {
+        val book = bookDao.getBookById(bookId) ?: return
+        val updatedBook = book.copy(memoryAnchor = anchor)
+        bookDao.insertBook(updatedBook)
+    }
 }

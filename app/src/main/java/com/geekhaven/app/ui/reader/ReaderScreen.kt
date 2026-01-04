@@ -16,6 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.activity.compose.BackHandler
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -49,6 +53,25 @@ fun PdfReader(
     viewModel: PdfViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
+    var showMemoryDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = true) {
+        showMemoryDialog = true
+    }
+    
+    if (showMemoryDialog) {
+        MemoryAnchorDialog(
+            onDismiss = {
+                showMemoryDialog = false
+                onNavigateBack() // Just exit without saving anchor
+            },
+            onSave = { anchor ->
+                showMemoryDialog = false
+                viewModel.saveMemoryAnchor(anchor)
+                onNavigateBack()
+            }
+        )
+    }
 
     LaunchedEffect(bookId) {
         viewModel.loadPdf(bookId)
@@ -94,6 +117,25 @@ fun AudioPlayer(
     viewModel: AudioViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
+    var showMemoryDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = true) {
+        showMemoryDialog = true
+    }
+
+    if (showMemoryDialog) {
+        MemoryAnchorDialog(
+            onDismiss = {
+                showMemoryDialog = false
+                onNavigateBack()
+            },
+            onSave = { anchor ->
+                showMemoryDialog = false
+                viewModel.saveMemoryAnchor(anchor)
+                onNavigateBack()
+            }
+        )
+    }
 
     LaunchedEffect(bookId) {
         viewModel.loadAudio(bookId)

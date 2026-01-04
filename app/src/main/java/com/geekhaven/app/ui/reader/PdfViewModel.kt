@@ -105,6 +105,13 @@ class PdfViewModel @Inject constructor(
             )
         }
     }
+
+    fun saveMemoryAnchor(anchor: String) {
+        val bookId = currentBookId ?: return
+        viewModelScope.launch {
+            bookRepository.updateMemoryAnchor(bookId, anchor)
+        }
+    }
     
     override fun onCleared() {
         super.onCleared()

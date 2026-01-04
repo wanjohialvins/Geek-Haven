@@ -107,7 +107,34 @@ fun BookDetailContent(book: BookEntity) {
             )
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(24.dp))
+        
+        // Memory Anchor (If You Stop Now...)
+        if (!book.memoryAnchor.isNullOrBlank()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.small)
+                    .padding(16.dp)
+            ) {
+                Column {
+                    Text(
+                        text = "Previously on...",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = book.memoryAnchor,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(24.dp))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         // Format Actions
         Text(text = "Available Formats", style = MaterialTheme.typography.labelLarge)

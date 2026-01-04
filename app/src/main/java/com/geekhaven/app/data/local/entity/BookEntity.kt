@@ -41,6 +41,9 @@ data class BookEntity(
     val currentPage: Int = 0, // For PDF/EPUB
     val audioPosition: Long = 0L, // For Audio (ms)
     
+    // Intelligence & Memory
+    val memoryAnchor: String? = null, // "If You Stop Now" context note
+    
     // Available Formats & URIs
     val pdfUri: String? = null,
     val epubUri: String? = null,

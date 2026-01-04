@@ -29,8 +29,8 @@
     - [x] **Book Hub Detail**: Unified progress, format switching <!-- id: 22 -->
 
 - [ ] **Feature Implementation: Readers & Players** <!-- id: 23 -->
-    - [ ] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->
-    - [ ] **Audio Player**: Basic playback, progress tracking <!-- id: 25 -->
+    - [x] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->
+    - [x] **Audio Player**: Basic playback, progress tracking <!-- id: 25 -->
     - [ ] Implement "If You Stop Now..." Memory Feature <!-- id: 26 -->
 
 - [ ] **Intelligence & Personalization** <!-- id: 27 -->

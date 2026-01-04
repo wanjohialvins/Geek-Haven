@@ -27,4 +27,17 @@ class HomeViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = emptyList()
         )
+
+    val recommendedBooks: StateFlow<List<BookEntity>> = allBooks
+        .map { list -> 
+            // Simple logic: Unread books, shuffled
+            list.filter { it.readingStatus == com.geekhaven.app.data.local.entity.ReadingStatus.NOT_STARTED }
+                .shuffled()
+                .take(5)
+        }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
 }
