@@ -31,8 +31,8 @@
 - [ ] **Feature Implementation: Readers & Players** <!-- id: 23 -->
     - [x] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->
     - [x] **Audio Player**: Basic playback, progress tracking <!-- id: 25 -->
-    - [ ] **Audio Features**: Seekbar, Speed Control, Lock Mode, Sleep Timer <!-- id: 37 -->
-    - [ ] **PDF Features**: Auto-Page-Turn, Read Mode (Sepia/Night), Immersive Mode <!-- id: 38 -->
+    - [x] **Audio Features**: Seekbar, Speed Control, Lock Mode, Sleep Timer <!-- id: 37 -->
+    - [x] **PDF Features**: Auto-Page-Turn, Read Mode (Sepia/Night), Immersive Mode <!-- id: 38 -->
     - [x] Implement "If You Stop Now..." Memory Feature <!-- id: 26 -->
 
 - [ ] **Intelligence & Personalization** <!-- id: 27 -->
@@ -47,3 +47,4 @@
     - [x] Generate Project Documentation (Setup, Architecture) <!-- id: 32 -->
     - [x] Final UI Polish (Animations, Transitions) <!-- id: 33 -->
     - [x] Create User Manual <!-- id: 36 -->
+    - [x] Configure Permission Signing (Drottastar21) <!-- id: 39 -->

@@ -48,6 +48,22 @@ fun ReaderScreen(
     format: String, // "pdf", "epub", "audio"
     onNavigateBack: () -> Unit
 ) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    
+    // Immersive Mode (Hide System Bars)
+    DisposableEffect(Unit) {
+        val activity = context as? android.app.Activity
+        val window = activity?.window
+        val insetsController = androidx.core.view.WindowCompat.getInsetsController(window!!, window.decorView)
+        
+        insetsController.systemBarsBehavior = androidx.core.view.WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        insetsController.hide(androidx.core.view.WindowInsetsCompat.Type.systemBars())
+        
+        onDispose {
+            insetsController.show(androidx.core.view.WindowInsetsCompat.Type.systemBars())
+        }
+    }
+
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (format.lowercase()) {
             "pdf" -> PdfReader(bookId, onNavigateBack)
