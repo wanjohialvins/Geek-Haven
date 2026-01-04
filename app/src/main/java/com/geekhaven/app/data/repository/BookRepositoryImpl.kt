@@ -39,4 +39,22 @@ class BookRepositoryImpl @Inject constructor(
             emptyList()
         }
     }
+
+    override suspend fun updateProgress(
+        bookId: Long,
+        page: Int,
+        audioPos: Long,
+        percentage: Int,
+        status: com.geekhaven.app.data.local.entity.ReadingStatus
+    ) {
+        val book = bookDao.getBookById(bookId) ?: return
+        val updatedBook = book.copy(
+            currentPage = page,
+            audioPosition = audioPos,
+            progressPercentage = percentage,
+            readingStatus = status,
+            lastReadTime = System.currentTimeMillis()
+        )
+        bookDao.insertBook(updatedBook)
+    }
 }

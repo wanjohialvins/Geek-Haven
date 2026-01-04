@@ -24,9 +24,9 @@
     - [x] Implement Book Matching Logic (Format Grouping) <!-- id: 18 -->
 
 - [ ] **Feature Implementation: Core UX** <!-- id: 19 -->
-    - [ ] **Home Screen**: Currently Reading, Recommendations <!-- id: 20 -->
-    - [ ] **Library Screen**: Filterable list, "Book Hub" views <!-- id: 21 -->
-    - [ ] **Book Hub Detail**: Unified progress, format switching <!-- id: 22 -->
+    - [x] **Home Screen**: Currently Reading, Recommendations <!-- id: 20 -->
+    - [x] **Library Screen**: Filterable list, "Book Hub" views <!-- id: 21 -->
+    - [x] **Book Hub Detail**: Unified progress, format switching <!-- id: 22 -->
 
 - [ ] **Feature Implementation: Readers & Players** <!-- id: 23 -->
     - [ ] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->

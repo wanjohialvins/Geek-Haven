@@ -11,4 +11,7 @@ interface BookRepository {
     
     // Remote
     suspend fun searchRemoteBooks(query: String, apiKey: String): List<BookEntity>
+    
+    // Progress
+    suspend fun updateProgress(bookId: Long, page: Int, audioPos: Long, percentage: Int, status: com.geekhaven.app.data.local.entity.ReadingStatus)
 }

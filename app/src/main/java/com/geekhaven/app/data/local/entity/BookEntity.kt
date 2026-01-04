@@ -37,6 +37,10 @@ data class BookEntity(
     val progressPercentage: Int = 0, // 0-100
     val lastReadTime: Long = 0L,
     
+    // Exact Progress
+    val currentPage: Int = 0, // For PDF/EPUB
+    val audioPosition: Long = 0L, // For Audio (ms)
+    
     // Available Formats & URIs
     val pdfUri: String? = null,
     val epubUri: String? = null,

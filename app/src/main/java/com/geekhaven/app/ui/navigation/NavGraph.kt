@@ -51,6 +51,21 @@ fun GeekHavenNavGraph(
             )
         }
 
+        composable(
+            route = Screen.Reader.route,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.LongType },
+                navArgument("format") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val bookId = backStackEntry.arguments?.getLong("bookId") ?: 0L
+            val format = backStackEntry.arguments?.getString("format") ?: "unknown"
+            com.geekhaven.app.ui.reader.ReaderScreen(
+                bookId = bookId,
+                format = format,
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
         composable(Screen.Settings.route) {
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() }
