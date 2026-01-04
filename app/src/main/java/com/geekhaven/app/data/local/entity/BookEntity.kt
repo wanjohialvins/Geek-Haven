@@ -37,7 +37,11 @@ data class BookEntity(
     val progressPercentage: Int = 0, // 0-100
     val lastReadTime: Long = 0L,
     
-    // Available Formats (Simple boolean flags for quick checking, detailed paths in separate table or JSON)
+    // Available Formats & URIs
+    val pdfUri: String? = null,
+    val epubUri: String? = null,
+    val audioUri: String? = null,
+    
     val hasPdf: Boolean = false,
     val hasEpub: Boolean = false,
     val hasAudio: Boolean = false,

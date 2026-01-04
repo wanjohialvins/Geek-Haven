@@ -12,15 +12,15 @@
     - [ ] Create Base MVVM Architecture Components <!-- id: 8 -->
 
 - [ ] **Data Layer Implementation** <!-- id: 9 -->
-    - [/] Setup Room Database (Entities: Book, ReadingSession, etc.) <!-- id: 10 -->
-    - [ ] Implement Google Books API Client <!-- id: 11 -->
+    - [x] Setup Room Database (Entities: Book, ReadingSession, etc.) <!-- id: 10 -->
+    - [x] Implement Google Books API Client <!-- id: 11 -->
     - [ ] Implement Web Search Client (for sequels/release dates) <!-- id: 12 -->
     - [ ] Implement Gemini API Client (stub/integration for interpretation) <!-- id: 13 -->
-    - [ ] Create Repositories (BookRepository, SearchRepository) <!-- id: 14 -->
+    - [x] Create Repositories (BookRepository, SearchRepository) <!-- id: 14 -->
 
 - [ ] **Local File Management (The "Book Hub")** <!-- id: 15 -->
-    - [ ] Implement Storage Access Framework (SAF) integration <!-- id: 16 -->
-    - [ ] Build Local File Scanner (PDF, EPUB, Audio) <!-- id: 17 -->
+    - [/] Implement Storage Access Framework (SAF) integration <!-- id: 16 -->
+    - [/] Build Local File Scanner (PDF, EPUB, Audio) <!-- id: 17 -->
     - [ ] Implement Book Matching Logic (Format Grouping) <!-- id: 18 -->
 
 - [ ] **Feature Implementation: Core UX** <!-- id: 19 -->
