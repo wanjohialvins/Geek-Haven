@@ -19,7 +19,8 @@ import androidx.compose.ui.layout.ContentScale
 @Composable
 fun PdfPage(
     index: Int,
-    viewModel: PdfViewModel
+    viewModel: PdfViewModel,
+    colorFilter: androidx.compose.ui.graphics.ColorFilter? = null
 ) {
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
 
@@ -35,7 +36,8 @@ fun PdfPage(
                     bitmap = btm.asImageBitmap(),
                     contentDescription = "Page ${index + 1}",
                     modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Fit // Fit page within screen
+                    contentScale = ContentScale.Fit, // Fit page within screen
+                    colorFilter = colorFilter
                 )
             }
         } ?: run {

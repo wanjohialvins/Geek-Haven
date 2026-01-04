@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.geekhaven.app-mergeDebugResources-59:/values-v16/values-v16.xml",
+            "outputFile": "com.geekhaven.app-mergeDebugResources-64:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alvod\\.gradle\\caches\\9.0-milestone-1\\transforms\\9f3bc51cfe55ab71a0160be15fcc7e3e\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\alvod\\.gradle\\caches\\9.0-milestone-1\\transforms\\ce49816e2c05e9fb0d70d903900b0b27\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

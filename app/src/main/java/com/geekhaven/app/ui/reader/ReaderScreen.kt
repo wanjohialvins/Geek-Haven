@@ -37,6 +37,9 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Replay10
 import androidx.compose.material.icons.filled.Forward30
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.LockOpen
+import androidx.compose.material.icons.filled.BrightnessMedium
 
 
 @Composable
@@ -86,6 +89,25 @@ fun PdfReader(
         viewModel.loadPdf(bookId)
     }
 
+    // Read Mode State (0 = Light, 1 = Sepia, 2 = Dark)
+    var readMode by remember { mutableStateOf(0) }
+    
+    // Auto Flip State
+    var autoFlipEnabled by remember { mutableStateOf(false) }
+    var autoFlipInterval by remember { mutableStateOf(10L) } // Seconds
+    
+    val colorFilter = when (readMode) {
+        1 -> androidx.compose.ui.graphics.ColorFilter.tint(Color(0x335D4037), androidx.compose.ui.graphics.BlendMode.Darken) // Sepia-ish overlay
+        2 -> androidx.compose.ui.graphics.ColorFilter.colorMatrix(androidx.compose.ui.graphics.ColorMatrix().apply { setToSaturation(0f); setToScale(-1f, -1f, -1f, 1f) }) // Inverted/Dark
+        else -> null
+    }
+    
+    val bgColor = when (readMode) {
+        1 -> Color(0xFFF4ECD8) // Sepia Paper
+        2 -> Color.Black
+        else -> Color.White
+    }
+
     when (val s = state) {
         is PdfReaderState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -103,17 +125,71 @@ fun PdfReader(
                 pageCount = { s.pageCount }
             )
             
+            // Auto Flip Logic
+            LaunchedEffect(autoFlipEnabled, autoFlipInterval) {
+                if (autoFlipEnabled) {
+                    while (true) {
+                        kotlinx.coroutines.delay(autoFlipInterval * 1000L)
+                        if (pagerState.currentPage < s.pageCount - 1) {
+                            pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                        } else {
+                            autoFlipEnabled = false // Stop at end
+                        }
+                    }
+                }
+            }
+            
             // Track page changes
             LaunchedEffect(pagerState.currentPage) {
                 viewModel.saveProgress(pagerState.currentPage)
             }
             
-            // Simple Pager for now (Nature: "Focus on Content")
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier.fillMaxSize().background(Color.White) // Paper background
-            ) { pageIndex ->
-                PdfPage(index = pageIndex, viewModel = viewModel)
+            Box(modifier = Modifier.fillMaxSize()) {
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxSize().background(bgColor)
+                ) { pageIndex ->
+                    PdfPage(index = pageIndex, viewModel = viewModel, colorFilter = colorFilter)
+                }
+                
+                // Overlay Controls (Top Center for Read Mode, Bottom for Auto Flip)
+                // In immersive mode we might hide these, but for "Read Mode" as a filter, let's keep simple buttons.
+                
+                // Theme Toggle
+                androidx.compose.material3.FloatingActionButton(
+                    onClick = { readMode = (readMode + 1) % 3 },
+                    modifier = Modifier.align(Alignment.TopEnd).padding(16.dp).size(48.dp),
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha=0.7f)
+                ) {
+                    Icon(
+                        androidx.compose.material.icons.Icons.Default.BrightnessMedium, 
+                        contentDescription = "Theme",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+                
+                // Auto Flip Toggle
+                Row(
+                    modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    if (autoFlipEnabled) {
+                        Text("${autoFlipInterval}s", style = MaterialTheme.typography.labelSmall, modifier=Modifier.background(MaterialTheme.colorScheme.surface.copy(alpha=0.7f)).padding(4.dp))
+                        Spacer(modifier = Modifier.width(8.dp))
+                    }
+                    
+                    androidx.compose.material3.FloatingActionButton(
+                        onClick = { autoFlipEnabled = !autoFlipEnabled },
+                        modifier = Modifier.size(48.dp),
+                        containerColor = if(autoFlipEnabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface.copy(alpha=0.7f)
+                    ) {
+                         Icon(
+                            androidx.compose.material.icons.Icons.Default.PlayArrow, // Or a generic 'Auto' icon
+                            contentDescription = "Auto Flip",
+                            tint = if(autoFlipEnabled) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+                }
             }
         }
     }
@@ -146,6 +222,12 @@ fun AudioPlayer(
         )
     }
 
+    // Lock Mode State
+    var isLocked by remember { mutableStateOf(false) }
+    
+    // Sleep Timer Dialog State
+    var showTimerDialog by remember { mutableStateOf(false) }
+
     LaunchedEffect(bookId) {
         viewModel.loadAudio(bookId)
     }
@@ -159,10 +241,24 @@ fun AudioPlayer(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(32.dp)
                 ) {
+                    // Lock Button (Always visible)
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
+                         androidx.compose.material3.IconButton(onClick = { isLocked = !isLocked }) {
+                            Icon(
+                                imageVector = if (isLocked) androidx.compose.material.icons.Icons.Default.Lock else androidx.compose.material.icons.Icons.Default.LockOpen,
+                                contentDescription = "Lock Controls",
+                                tint = if (isLocked) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
+                            )
+                         }
+                    }
+
+                    // Content - Disabled or Hidden instructions if Locked? 
+                    // Usually we just disable interactions. 
+                    // We can use 'enabled' params or an overlay. Simple boolean check is enough.
+                    
                     Text(text = "Now Playing", style = MaterialTheme.typography.titleLarge)
                     Spacer(modifier = Modifier.height(32.dp))
                     
-                    // Simple Icon
                     Icon(
                         imageVector = androidx.compose.material.icons.Icons.Default.Headphones,
                         contentDescription = null,
@@ -172,11 +268,15 @@ fun AudioPlayer(
                     
                     Spacer(modifier = Modifier.height(32.dp))
                     
+                    // Controls (Disabled when locked)
+                    val controlsEnabled = !isLocked
+                    
                     // Progress Slider
                     androidx.compose.material3.Slider(
                         value = s.position.toFloat(),
-                        onValueChange = { viewModel.seekTo(it.toLong()) },
-                        valueRange = 0f..s.duration.toFloat().coerceAtLeast(1f)
+                        onValueChange = { if (controlsEnabled) viewModel.seekTo(it.toLong()) },
+                        valueRange = 0f..s.duration.toFloat().coerceAtLeast(1f),
+                        enabled = controlsEnabled
                     )
                     
                     Row(
@@ -191,8 +291,10 @@ fun AudioPlayer(
                     
                     // Controls
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                         // replay 10s
-                         androidx.compose.material3.IconButton(onClick = { viewModel.seekTo((s.position - 10000).coerceAtLeast(0)) }) {
+                         androidx.compose.material3.IconButton(
+                             onClick = { viewModel.seekTo((s.position - 10000).coerceAtLeast(0)) },
+                             enabled = controlsEnabled
+                         ) {
                             Icon(androidx.compose.material.icons.Icons.Default.Replay10, "Rewind 10s")
                          }
                          
@@ -202,7 +304,8 @@ fun AudioPlayer(
                             onClick = { viewModel.togglePlayPause() },
                             modifier = Modifier.size(64.dp),
                             shape = androidx.compose.foundation.shape.CircleShape,
-                            contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)
+                            contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp),
+                            enabled = controlsEnabled
                         ) {
                             Icon(
                                 imageVector = if (viewModel.player?.isPlaying == true) androidx.compose.material.icons.Icons.Default.Pause else androidx.compose.material.icons.Icons.Default.PlayArrow,
@@ -212,24 +315,65 @@ fun AudioPlayer(
                         
                          Spacer(modifier = Modifier.width(16.dp))
                          
-                         // forward 30s
-                         androidx.compose.material3.IconButton(onClick = { viewModel.seekTo((s.position + 30000).coerceAtMost(s.duration)) }) {
+                         androidx.compose.material3.IconButton(
+                             onClick = { viewModel.seekTo((s.position + 30000).coerceAtMost(s.duration)) },
+                             enabled = controlsEnabled
+                         ) {
                             Icon(androidx.compose.material.icons.Icons.Default.Forward30, "Forward 30s")
                          }
                     }
                     
                     Spacer(modifier = Modifier.height(24.dp))
                     
-                    // Speed Toggle
-                    var speed by remember { mutableStateOf(1.0f) }
-                    TextButton(onClick = {
-                        speed = if (speed >= 2.0f) 0.75f else speed + 0.25f
-                        viewModel.setPlaybackSpeed(speed)
-                    }) {
-                        Text("Speed: ${speed}x")
+                    Row {
+                         // Speed Toggle
+                        var speed by remember { mutableStateOf(1.0f) }
+                        TextButton(
+                            onClick = {
+                                speed = if (speed >= 2.0f) 0.75f else speed + 0.25f
+                                viewModel.setPlaybackSpeed(speed)
+                            },
+                            enabled = controlsEnabled
+                        ) {
+                            Text("Speed: ${speed}x")
+                        }
+                        
+                        // Sleep Timer
+                        TextButton(
+                            onClick = { showTimerDialog = true },
+                            enabled = controlsEnabled
+                        ) {
+                            Text("Sleep Timer")
+                        }
                     }
                 }
             }
+        }
+        
+        if (showTimerDialog) {
+            androidx.compose.material3.AlertDialog(
+                onDismissRequest = { showTimerDialog = false },
+                title = { Text("Set Sleep Timer") },
+                text = {
+                     Column {
+                         listOf(15, 30, 45, 60).forEach { mins ->
+                             TextButton(onClick = { 
+                                 viewModel.setSleepTimer(mins)
+                                 showTimerDialog = false 
+                             }) {
+                                 Text("$mins minutes")
+                             }
+                         }
+                         TextButton(onClick = { 
+                             viewModel.setSleepTimer(0) // Cancel
+                             showTimerDialog = false
+                         }) {
+                             Text("Off", color = MaterialTheme.colorScheme.error)
+                         }
+                     }
+                },
+                confirmButton = {}
+            )
         }
     }
 }

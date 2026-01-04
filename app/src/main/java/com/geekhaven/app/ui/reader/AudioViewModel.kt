@@ -115,8 +115,23 @@ class AudioViewModel @Inject constructor(
         _player?.setPlaybackSpeed(speed)
     }
 
+    private var sleepTimerJob: kotlinx.coroutines.Job? = null
+
+    fun setSleepTimer(minutes: Int) {
+        sleepTimerJob?.cancel()
+        if (minutes > 0) {
+            sleepTimerJob = viewModelScope.launch {
+                delay(minutes * 60 * 1000L)
+                if (isActive) {
+                    _player?.pause()
+                }
+            }
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
+        sleepTimerJob?.cancel()
         saveProgress() // Save on exit
         _player?.release()
         _player = null

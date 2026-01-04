@@ -31,6 +31,8 @@
 - [ ] **Feature Implementation: Readers & Players** <!-- id: 23 -->
     - [x] **PDF/EPUB Reader**: Basic rendering, page tracking, bookmarking <!-- id: 24 -->
     - [x] **Audio Player**: Basic playback, progress tracking <!-- id: 25 -->
+    - [ ] **Audio Features**: Seekbar, Speed Control, Lock Mode, Sleep Timer <!-- id: 37 -->
+    - [ ] **PDF Features**: Auto-Page-Turn, Read Mode (Sepia/Night), Immersive Mode <!-- id: 38 -->
     - [x] Implement "If You Stop Now..." Memory Feature <!-- id: 26 -->
 
 - [ ] **Intelligence & Personalization** <!-- id: 27 -->

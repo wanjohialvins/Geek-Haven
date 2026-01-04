@@ -14,12 +14,14 @@
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
         android:name="com.geekhaven.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.geekhaven.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- For documents/PDFs accessed via SAF, explicit permissions often handled via Intent results, but good to declare intent where possible -->
+    <uses-permission android:name="com.geekhaven.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
     <application
         android:name="com.geekhaven.app.GeekHavenApp"
         android:allowBackup="true"

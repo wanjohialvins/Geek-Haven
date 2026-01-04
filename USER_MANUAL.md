@@ -11,8 +11,16 @@ Geek Haven is your personal sanctuary for books. It organizes your local PDFs, E
 - **Details**: Tap any book to enter the **Book Hub**, where you can choose how to read or listen.
 
 ### 2. Smart Reading & Listening
-- **PDF Reader**: Swipe through pages naturally. Your page is *automatically saved*.
-- **Audio Player**: Listen to your audiobooks. Playback position is *automatically saved*.
+- **PDF Reader**: 
+    - **Zoom**: Pinch to zoom in on details.
+    - **Read Mode**: Tap the brightness icon to switch between Day, Sepia, and Night modes.
+    - **Auto-Flip**: Tap the Play button to automatically turn pages (Hands-free).
+    - Your page is *automatically saved*.
+- **Audio Player**: 
+    - **Controls**: Seekbar, Speed Control, and Skip buttons.
+    - **Sleep Timer**: Set a timer to stop playback automatically.
+    - **Lock Mode**: Tap the Lock icon to prevent accidental touches.
+    - Playback position is *automatically saved*.
 - **Memory Anchor**: When you stop reading, a popup asks "Leaving so soon?". Use this to type a quick note (e.g., "Stopped at the cliffhanger"). This note appears at the top of the Book Hub when you return.
 
 ### 3. Intelligence
