@@ -12,7 +12,7 @@
     - [ ] Create Base MVVM Architecture Components <!-- id: 8 -->
 
 - [ ] **Data Layer Implementation** <!-- id: 9 -->
-    - [ ] Setup Room Database (Entities: Book, ReadingSession, etc.) <!-- id: 10 -->
+    - [/] Setup Room Database (Entities: Book, ReadingSession, etc.) <!-- id: 10 -->
     - [ ] Implement Google Books API Client <!-- id: 11 -->
     - [ ] Implement Web Search Client (for sequels/release dates) <!-- id: 12 -->
     - [ ] Implement Gemini API Client (stub/integration for interpretation) <!-- id: 13 -->
