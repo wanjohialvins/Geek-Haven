@@ -25,7 +25,10 @@ fun GeekHavenNavGraph(
     ) {
         composable(Screen.Home.route) {
             HomeScreen(
-                onNavigateToLibrary = { navController.navigate(Screen.Library.route) }
+                onNavigateToLibrary = { navController.navigate(Screen.Library.route) },
+                onNavigateToBook = { bookId ->
+                    navController.navigate(Screen.BookHub.createRoute(bookId))
+                }
             )
         }
 
